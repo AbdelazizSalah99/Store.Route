@@ -52,6 +52,8 @@ namespace Store.Route.Api
                 app.UseSwaggerUI();
             }
 
+            app.UseStaticFiles();
+
             app.UseHttpsRedirection();
 
             app.UseAuthorization();

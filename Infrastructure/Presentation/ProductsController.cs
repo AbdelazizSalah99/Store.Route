@@ -15,9 +15,9 @@ namespace Presentation
     {
         // end point : public non static method
         [HttpGet]
-        public async Task<IActionResult> GetAllProducts()
+        public async Task<IActionResult> GetAllProducts([FromQuery]ProductSpecificationsParamters specParams)
         {
-            var result = await serviceManager.ProductService.GetAllProductsAsync();
+            var result = await serviceManager.ProductService.GetAllProductsAsync(specParams);
             if (result is null) return BadRequest(); // 400
             return Ok(result); // 200
 
@@ -32,20 +32,20 @@ namespace Presentation
 
         }
 
-        //[HttpGet]
-        //public async Task<IActionResult> GetAllBrands()
-        //{
-        //    var result = await serviceManager.ProductService.GetAllBrandsAsync();
-        //    if (result is null) return BadRequest(); // 400
-        //    return Ok(result); // 200
-        //}
-        //[HttpGet]
-        //public async Task<IActionResult> GetAllTypes()
-        //{
-        //    var result = await serviceManager.ProductService.GetAllTypesAsync();
-        //    if (result is null) return BadRequest(); // 400
-        //    return Ok(result); // 200
-        //}
+        [HttpGet("brands")]
+        public async Task<IActionResult> GetAllBrands()
+        {
+            var result = await serviceManager.ProductService.GetAllBrandsAsync();
+            if (result is null) return BadRequest(); // 400
+            return Ok(result); // 200
+        }
+        [HttpGet("types")]
+        public async Task<IActionResult> GetAllTypes()
+        {
+            var result = await serviceManager.ProductService.GetAllTypesAsync();
+            if (result is null) return BadRequest(); // 400
+            return Ok(result); // 200
+        }
 
 
 
