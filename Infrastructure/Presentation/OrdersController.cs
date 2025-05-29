@@ -46,5 +46,6 @@ namespace Presentation
             var result = await serviceManager.OrderService.GetAllDeliveryMethods();
             return Ok(result);
         }
+        //0.0
     }
 }
