@@ -31,7 +31,6 @@ namespace Services
             {
                 DisplayName = user.DisplayName,
                 Email = user.Email,
-                Token = await GenerateJwtTokenAsync(user),
 
             };
 
@@ -57,24 +56,6 @@ namespace Services
             {
                 DisplayName = user.DisplayName,
                 Email = user.Email,
-                Token = await GenerateJwtTokenAsync(user),
-
-            };
-        }
-
-
-        private async Task<string> GenerateJwtTokenAsync(AppUser user)
-        {
-            // Header
-            // Payload
-            // Signature
-
-            var jwtOptions = options.Value;
-
-            var authClaim = new List<Claim>
-            {
-                new Claim(ClaimTypes.Name, user.UserName),
-                new Claim(ClaimTypes.Email, user.Email),
 
             };
             var roles = await userManager.GetRolesAsync(user);

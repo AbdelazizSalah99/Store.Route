@@ -34,6 +34,7 @@ namespace Store.Route.Api.Extensions
 
 
 
+            services.ConfigureServices();
             return services;
 
         }
