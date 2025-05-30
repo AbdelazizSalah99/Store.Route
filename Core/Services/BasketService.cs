@@ -27,7 +27,7 @@ namespace Services
         {
             var basket = mapper.Map<CustomerBasket>(basketDto);
             basket = await basketRepository.UpdateBasketAsync(basket);
-            if (basket is null) throw new BasketCreateOrUpdateBadRequestException();
+            if (basket is null) throw new BasketCreateOrUpdateException();
             var result = mapper.Map<BasketDto>(basket);
 
             return result;

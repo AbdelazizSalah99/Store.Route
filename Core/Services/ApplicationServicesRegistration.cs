@@ -12,6 +12,7 @@ namespace Services
 {
     public static class ApplicationServicesRegistration
     {
+        public static IServiceCollection AddApplicationServices(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddAutoMapper(typeof(AssemblyReference).Assembly);
             services.AddScoped<IServiceManager, ServiceManager>();
